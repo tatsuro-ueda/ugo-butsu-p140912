@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('mean.articles').controller('ArticlesController', ['$scope', '$stateParams', '$location', 'Global', 'Articles',
-  function($scope, $stateParams, $location, Global, Articles) {
+angular.module('mean.articles', ['ngSanitize']).controller('ArticlesController', ['$scope', '$stateParams', '$location', 'Global', 'Articles', '$sce',
+  function($scope, $stateParams, $location, Global, Articles, $sce) {
     $scope.global = Global;
 
     $scope.hasAuthorization = function(article) {
@@ -70,6 +70,9 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$st
       }, function(article) {
         $scope.article = article;
       });
+    };
+    $scope.getArticleContent = function() {
+      return $sce.trustAsHtml($scope.article.content);
     };
   }
 ]);
