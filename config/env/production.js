@@ -3,6 +3,11 @@
 module.exports = {
 //  db: 'mongodb://localhost/mean-prod',
   db: 'mongodb://weed:HTL96kmn@kahana.mongohq.com:10036/app29481791',
+
+  /**
+   * 2014-09-12 error: angular is not defined
+   */
+
   /**
    * Database options that will be passed directly to mongoose.connect
    * Below are some examples.
